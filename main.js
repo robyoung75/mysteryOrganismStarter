@@ -1,3 +1,5 @@
+// DNA Mutation Object:
+
 // Returns a random DNA base
 const returnRandBase = () => {
   const dnaBases = ['A', 'T', 'C', 'G'];
@@ -15,12 +17,28 @@ const mockUpStrand = () => {
   return newStrand;
 };
 
-// factory function, returns an object with properties specimenNum and dna.
+// factory function pAequorFactory, returns an object with properties specimenNum and dna.
 
-// mutate() i = a random number 0 - 14. base, calling the returnRandBase function gives the random base. The random number is used
-// to select a random index from the dna array. If the random index is equal to the letter the letter is changed resulting in
-// mutation. I return the mutated dna strand.
+/*
+.mutate() is responsible for randomly selecting a base in the object’s dna property and changing the current base to a different base. 
+Then .mutate() will return the object’s dna. For example, if the randomly selected base is the 1st base and it is 'A', the base 
+must be changed to 'T', 'C', or 'G'. But it cannot be 'A' again.
 
+i = a random number 0 - 14. base, calling the returnRandBase function gives the random base. The random number is used
+to select a random index from the dna array. If the random index is equal to the letter the letter is changed resulting in
+mutation. I return the mutated dna strand.
+*/
+
+/*
+compareDNA() method: The behavior of .compareDNA() is to compare the current pAequor‘s .dna with the passed in pAequor‘s .dna 
+and compute how many bases are identical and in the same locations. .compareDNA() does not return anything, but prints a message 
+that states the percentage of DNA the two objects have in common
+*/
+
+/*
+willLikelySurvive() method: returns true if the object’s .dna array contains at least 60% 'C' or 'G' bases. 
+Otherwise, .willLikelySurvive() returns false.
+*/
 
 
 const pAequorFactory = (specimenNum, dna) => {
@@ -47,7 +65,7 @@ const pAequorFactory = (specimenNum, dna) => {
           counter++;
         }        
       } 
-      console.log(`pAequor1 and pAequor have ${(counter / this.dna.length * 100).toFixed(0)}% of their elements in common`);      
+      console.log(`Test pAequor and pAequor have ${(counter / this.dna.length * 100).toFixed(0)}% of their elements in common`);      
     },
     willLikelySurvive() {
       let gCounter = 0;
@@ -71,9 +89,11 @@ const pAequorFactory = (specimenNum, dna) => {
       }
       //console.log(gCounter);
       //console.log(cCounter);
-    }    
-  }
+    } //end of object properties    
+  } 
 } 
+
+// creates 30 instances of pAequor
 
 let sample = [];
 let i = 0;
